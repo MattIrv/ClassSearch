@@ -61,7 +61,7 @@
 		345CC9011B87D3C9007788FA /* ClassSearchUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassSearchUITests.m; sourceTree = "<group>"; };
 		345CC9031B87D3C9007788FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		345CC9111B87D4C1007788FA /* MIClassSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIClassSearchController.m; path = Controllers/MIClassSearchController.m; sourceTree = "<group>"; };
-		345CC9131B87D4DF007788FA /* MIClassSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIClassSearchController.h; sourceTree = "<group>"; };
+		345CC9131B87D4DF007788FA /* MIClassSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIClassSearchController.h; path = Controllers/MIClassSearchController.h; sourceTree = "<group>"; };
 		345CC9141B87D5E9007788FA /* MIClassSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIClassSearchView.h; path = Views/MIClassSearchView.h; sourceTree = "<group>"; };
 		345CC9151B87D62B007788FA /* MIClassSearchView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = MIClassSearchView.m; path = Views/MIClassSearchView.m; sourceTree = "<group>"; };
 		345CC9171B87D739007788FA /* MIClassListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIClassListController.h; path = Controllers/MIClassListController.h; sourceTree = "<group>"; };

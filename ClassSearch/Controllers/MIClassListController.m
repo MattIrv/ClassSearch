@@ -36,12 +36,8 @@ static NSString *HEADER_CELL_REUSE_ID = @"HeaderCell";
     [collectionView setDataSource:self];
     [collectionView setBackgroundColor:[UIColor whiteColor]];
     
-    UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [view setBackgroundColor:[UIColor orangeColor]];
-    [view addSubview:collectionView];
-    
     _collectionView = collectionView;
-    self.view = view;
+    self.view = collectionView;
     return self;
 }
 
