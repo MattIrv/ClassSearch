@@ -17,14 +17,8 @@ public class MIClassSearcher: NSObject {
         let request = NSMutableURLRequest(URL: NSURL(string: "https://rabi.phys.virginia.edu/mySIS/CS2/page.php?Semester=1158&Type=Search")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
-        let params = ["iMnemonic": department, "iNumber": classNumber] as Dictionary<String, String>
-        let options = NSJSONWritingOptions()
-        // TODO: This error handling code is out of date as of XCode 7 Beta 6 (which I don't have yet). Fix it!
-        do {
-            try request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: options)
-        } catch _ {
-            return []
-        }
+        let postString = "iMnemonic=\(department)&iNumber=\(classNumber)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         var error = false
         let task = session.dataTaskWithRequest(request, completionHandler: {(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void in
             if let _ = err {
