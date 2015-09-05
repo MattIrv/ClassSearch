@@ -24,6 +24,7 @@
 		345CC9261B88F8F2007788FA /* MICourseSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 345CC9251B88F8F2007788FA /* MICourseSectionCell.m */; };
 		345CC9291B88F96E007788FA /* MICourseHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 345CC9281B88F96E007788FA /* MICourseHeaderCell.m */; };
 		345CC92C1B890417007788FA /* MIClassListCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 345CC92B1B890417007788FA /* MIClassListCollectionView.m */; };
+		34DCE8AC1B9A462B0024BD82 /* MIClassSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DCE8AB1B9A462B0024BD82 /* MIClassSearcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		345CC9281B88F96E007788FA /* MICourseHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MICourseHeaderCell.m; path = Views/MICourseHeaderCell.m; sourceTree = "<group>"; };
 		345CC92A1B890417007788FA /* MIClassListCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIClassListCollectionView.h; path = Views/MIClassListCollectionView.h; sourceTree = "<group>"; };
 		345CC92B1B890417007788FA /* MIClassListCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIClassListCollectionView.m; path = Views/MIClassListCollectionView.m; sourceTree = "<group>"; };
+		34DCE8AA1B9A462B0024BD82 /* ClassSearch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClassSearch-Bridging-Header.h"; sourceTree = "<group>"; };
+		34DCE8AB1B9A462B0024BD82 /* MIClassSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MIClassSearcher.swift; path = Logic/MIClassSearcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,7 @@
 		345CC8DB1B87D3C8007788FA /* ClassSearch */ = {
 			isa = PBXGroup;
 			children = (
+				34DCE8A91B9A46030024BD82 /* Logic */,
 				345CC91D1B87DBB6007788FA /* Models */,
 				345CC9101B87D475007788FA /* Views */,
 				345CC90F1B87D45F007788FA /* Controllers */,
@@ -209,6 +213,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		34DCE8A91B9A46030024BD82 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				34DCE8AB1B9A462B0024BD82 /* MIClassSearcher.swift */,
+				34DCE8AA1B9A462B0024BD82 /* ClassSearch-Bridging-Header.h */,
+			);
+			name = Logic;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -271,6 +284,7 @@
 		345CC8D11B87D3C8007788FA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Matthew Irvine";
 				TargetAttributes = {
@@ -349,6 +363,7 @@
 				345CC9291B88F96E007788FA /* MICourseHeaderCell.m in Sources */,
 				345CC9231B88E377007788FA /* MICourseSection.m in Sources */,
 				345CC8E11B87D3C8007788FA /* AppDelegate.m in Sources */,
+				34DCE8AC1B9A462B0024BD82 /* MIClassSearcher.swift in Sources */,
 				345CC9121B87D4C1007788FA /* MIClassSearchController.m in Sources */,
 				345CC8DE1B87D3C8007788FA /* main.m in Sources */,
 			);
@@ -491,10 +506,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ClassSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mattirv.ClassSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ClassSearch/ClassSearch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -502,10 +520,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ClassSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mattirv.ClassSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ClassSearch/ClassSearch-Bridging-Header.h";
 			};
 			name = Release;
 		};

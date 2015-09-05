@@ -12,6 +12,7 @@
 #import "ViewController.h"
 #import "MICourse.h"
 #import "MICourseSection.h"
+#import "ClassSearch-Swift.h"
 
 @interface MIClassSearchController ()
 
@@ -29,12 +30,12 @@
 
 -(void)handleSearchForString:(NSString *)searchString {
     //TODO: Process the string
-    NSArray *classList = [self createSampleClassList];
+    NSArray *classList = [MIClassSearcher performSearchForString:searchString];
     [self.mainController showClassListViewWithClassList:classList];
 }
 
 
-- (NSArray *)createSampleClassList __deprecated_msg("Use real data") {
++ (NSArray *)createSampleClassList __deprecated_msg("Use real data") {
     //TODO: Never call this
     NSMutableArray *classList = [NSMutableArray arrayWithCapacity:10];
     NSArray *course1Teachers = [NSArray arrayWithObject:@"Kevin Sullivan"];

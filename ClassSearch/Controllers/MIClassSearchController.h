@@ -12,4 +12,5 @@
 @interface MIClassSearchController : UIViewController
 - (MIClassSearchController *)initWithMainController:(ViewController *)mainController withFrame:(CGRect)frame;
 - (void)handleSearchForString:(NSString *)searchString;
++ (NSArray *)createSampleClassList __deprecated_msg("Use real data");
 @end
