@@ -26,7 +26,7 @@ static NSString *HEADER_CELL_REUSE_ID = @"HeaderCell";
 @implementation MIClassListController
 
 -(instancetype)initWithMainController:(ViewController *)mainController withFrame:(CGRect)frame {
-    self.mainController = mainController;
+    _mainController = mainController;
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.headerReferenceSize = CGSizeMake(frame.size.width, 100.0f);
     MIClassListCollectionView *collectionView = [[MIClassListCollectionView alloc] initWithFrame:frame collectionViewLayout:flowLayout];
@@ -77,6 +77,31 @@ static NSString *HEADER_CELL_REUSE_ID = @"HeaderCell";
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return self.classList.count;
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)layout referenceSizeForHeaderInSection:(NSInteger)section {
+    // This is hacky but I blame Apple. Create the same cell and see how big it is
+    MICourseHeaderCell *cell = [[MICourseHeaderCell alloc] init];
+    CGRect frame = self.collectionView.frame;
+    cell.frame = frame;
+    [cell setCourse:[self.classList objectAtIndex:section]];
+    CGFloat height = cell.frame.size.height;
+    CGFloat width = frame.size.width;
+    return CGSizeMake(width, height);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    MICourseSectionCell *cell = [[MICourseSectionCell alloc] init];
+    CGRect frame = self.collectionView.frame;
+    cell.frame = frame;
+    NSInteger courseIndex = indexPath.section;
+    NSInteger sectionIndex = indexPath.item;
+    MICourse *course = [self.classList objectAtIndex:courseIndex];
+    MICourseSection *section = [course.sections objectAtIndex:sectionIndex];
+    [cell setSection:section];
+    CGFloat height = cell.frame.size.height;
+    CGFloat width = frame.size.width;
+    return CGSizeMake(width, height);
 }
 
 @end

@@ -24,18 +24,33 @@ public class MIClassSearcher: NSObject {
             if let _ = err {
                 error = true
             }
-            let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            // TODO
-            print("Body: \(strData)")
+            else {
+                let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                // TODO
+                print("Body: \(strData)")
+            }
         })
         task.resume()
         // Wait for the request to complete. There's probably a better way to do this
-        while task.state != NSURLSessionTaskState.Completed {
+        var timeCounter = 0;
+        // TODO: 100 is probably a better timeout. Was using 1 for debugging w/o internet
+        while task.state != NSURLSessionTaskState.Completed && timeCounter < 100 {
             print("Task State: \(task.state)")
             NSThread.sleepForTimeInterval(0.1)
+            timeCounter++;
+            // TODO: Display a loading animation
+        }
+        if timeCounter >= 100 {
+            // TODO: Display the error in an appropriate way
+            return MIClassSearchController.createSampleClassList().map({(obj: AnyObject) -> MICourse in
+                obj as! MICourse
+            })
         }
         if error == true {
-            return []
+            // TODO: Display the error in an appropriate way
+            return MIClassSearchController.createSampleClassList().map({(obj: AnyObject) -> MICourse in
+                obj as! MICourse
+            })
         }
         else {
             // TODO

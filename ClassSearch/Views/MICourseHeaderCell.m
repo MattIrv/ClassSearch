@@ -23,13 +23,18 @@
     courseNumberLabel.frame = courseNumberLabelFrame;
     [self.contentView addSubview:courseNumberLabel];
     UILabel *courseTitleLabel = [[UILabel alloc] initWithFrame:self.frame];
+    courseTitleLabel.numberOfLines = 0;
+    courseTitleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     [courseTitleLabel setText:course.title];
     [courseTitleLabel sizeToFit];
     CGRect courseTitleLabelFrame = courseTitleLabel.frame;
-    courseTitleLabelFrame.origin = CGPointMake(CGRectGetWidth(courseNumberLabelFrame) + 10.0f, 5.0f);
+    courseTitleLabelFrame.origin = CGPointMake(CGRectGetMaxX(courseNumberLabelFrame) + 10.0f, 5.0f);
     courseTitleLabel.frame = courseTitleLabelFrame;
     [self.contentView addSubview:courseTitleLabel];
     [self.contentView setBackgroundColor:[UIColor cyanColor]];
+    CGRect frame = self.frame;
+    frame.size.height = CGRectGetMaxY(courseTitleLabel.frame) + 5.0f;
+    self.frame = frame;
     _course = course;
 }
 

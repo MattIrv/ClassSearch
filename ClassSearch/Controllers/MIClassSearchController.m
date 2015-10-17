@@ -44,7 +44,7 @@
     NSURL *course1URL = [NSURL URLWithString:@"http://google.com"];
     for(int i=0; i<10; i++) {
         MICourseSection *courseSection = [[MICourseSection alloc] initWithSectionID:12345 sectionNumber:i type:@"Lecture" credits:3 status:@"Open" enrollment:30 capacity:45 teachers:course1Teachers meetingTimes:course1Meetings locations:course1Locations website:course1URL subtitle:nil sectionDescription:nil  syllabus:nil comments:nil enrollmentRequirements:@"None" requirementDesignation:@"None" sisDescription:nil];
-        MICourse *course = [[MICourse alloc] initWithDepartment:@"CS" number:(1000 + i) title:@"Introduction to Programming" courseDescription:@"" sections:[NSArray arrayWithObject:courseSection]];
+        MICourse *course = [[MICourse alloc] initWithDepartment:@"CS" number:(1000 + i) title:@"Introduction to Programming This Is a Really Long Title" courseDescription:@"" sections:[NSArray arrayWithObject:courseSection]];
         [classList addObject:course];
     }
     return classList;
